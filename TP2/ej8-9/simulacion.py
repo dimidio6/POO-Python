@@ -1,0 +1,36 @@
+from Comuna import Comuna
+from Persona import Persona
+from Familia import Familia
+
+persona1 = Persona("Juan","Fernández",30,"H",False,True)
+persona2 = Persona("Melina","Fernández",5,"M",False,True)
+persona3 = Persona("Leticia","Suárez",33,"M",True,False)
+familia1 = Familia()
+familia1.agregar(persona1)
+familia1.agregar(persona2)
+familia1.agregar(persona3)
+persona4 = Persona("Alberto","Pérez",68,"H",False,False)
+persona5 = Persona("Augusto","Giménez",59,"H",False,True)
+familia2 = Familia()
+familia2.agregar(persona4)
+familia2.agregar(persona5)
+persona6 = Persona("Marta","Rodríguez",40,"M",True,True)
+persona7 = Persona("Roberto","Loncón",45,"H",False,True)
+persona8 = Persona("Lucas","Loncón",17,"H",True,False)
+persona9 = Persona("Rodrigo","Loncón",12,"H",True,False)
+familia3 = Familia()
+familia3.agregar(persona6)
+familia3.agregar(persona7)
+familia3.agregar(persona8)
+familia3.agregar(persona9)
+comuna1 = Comuna()
+comuna1.agregar(familia1)
+comuna1.agregar(familia2)
+comuna1.agregar(familia3)
+
+cantidad_persona = familia1.cantidad()+familia2.cantidad()+familia3.cantidad()
+promedio = (familia1.sumatoria_edad()+familia2.sumatoria_edad()+familia3.sumatoria_edad())/cantidad_persona
+print(f'{"Cantidad de familias censadas: "}{comuna1.cantidad_familia()}')
+print(f'{"Cantidad de personas censadas: "}{cantidad_persona}')
+print(f'{"Promedio de edad: "}{promedio}')
+print(f'{"Cantidad de personas que trabajan: "}{comuna1.cantidad_trabaja_com()}')
