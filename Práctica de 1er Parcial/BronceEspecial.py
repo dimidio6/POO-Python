@@ -13,7 +13,7 @@ class BronceEspecial(Carta):
     
     def asignar_atributo(self):
         aleatorio = randint(49,65)
-        return aleatorio+2
+        return aleatorio+2 #suma del 2
     
     def calcular_quimica(self, equipoFav, paisFav):
         return super().calcular_quimica(equipoFav, paisFav)
