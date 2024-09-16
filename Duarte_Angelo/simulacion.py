@@ -17,4 +17,11 @@ for i in range(1,10):
 
 entrenador1 = Entrenador('Ash',random.choice(pokemones)) #el pokemón principal del entrenador se asigna aleatoriamente
 
-entrenador1.atraparPokemon(random.choice(pokemones))
+for combate in range(0,3): # *
+    entrenador1.atraparPokemon(random.choice(pokemones)) # **
+print('=======================')
+entrenador1.imprimir()
+
+# COSAS A AGREGAR
+#   - *: debería hacer un for de 10 para intentar atrapar los de 10 pokemones creados. Tengo q cambiar la asignación de nombres
+#   - **: podría modificarse para que el random no haga atrapar a un pokemón que ya tengo en mi pokedex

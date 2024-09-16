@@ -7,14 +7,29 @@ class Agua(Pokemon):
         self._tipo = 'Agua'
         self._debilidad = 'Hierba'
     
+    def getSalvajismo(self):
+        return super().getSalvajismo()
+    
+    def setSalvajismo(self, valor):
+        return super().setSalvajismo(valor)
+    
+    def getVida(self):
+        return super().getVida()
+    
+    def setVida(self, valor):
+        return super().setVida(valor)
+    
+    def getNombre(self):
+        return super().getNombre()
+    
     def imprimir(self):
         return super().imprimir()
     
     def ataque(self, pokemon):
         if self._tipo == pokemon._debilidad:
-            return self.__ataque+self.__ataque*0.7 #incrementa el ataque en %70
+            return self._ataque+self._ataque*0.7 #incrementa el ataque en %70
         else:
-            return self.__ataque
+            return self._ataque
     
     def defensa(self, ataque):
         probabilidad = randint(1,10)

@@ -1,5 +1,7 @@
 from random import *
-from Pokemon import Pokemon
+from Hierba import Hierba
+from Fuego import Fuego
+from Agua import Agua
 
 class Entrenador:
     def __init__(self,nombre,pokemonMain):
@@ -9,6 +11,12 @@ class Entrenador:
         self.__pokedex = []
     
     def atraparPokemon(self,pokemonDisputado):
+        print('----- INICIO DE COMBATE -----')
+        print()
+        print('/// POKEMÓN A CAPTURAR ///')
+        pokemonDisputado.imprimir()
+        print('/// POKEMÓN UTILIZADO ///')
+        self.__pokemonMain.imprimir()
         salvajismoActual = pokemonDisputado.getSalvajismo()
         capturado = False #variable para evitar capturarlo + de una vez en el for
         if self.__nivel > salvajismoActual:
@@ -26,4 +34,13 @@ class Entrenador:
                     print("Pokemón atrapado con éxito!")
         if not capturado:
             print("Falló la captura :(")
-                
+        print()
+    
+    def imprimir(self):
+        print('Entrenador:',self.__nombre)
+        print('     Nivel:',self.__nivel)
+        print('POKEDEX:')
+        print(self.__pokemonMain.getNombre())
+        for pokemon in self.__pokedex:
+            print(pokemon.getNombre())
+        print('--------------')
