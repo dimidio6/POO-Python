@@ -11,24 +11,19 @@ class Pokemon(ABC):
         self._velocidad = self.generar_atributos()
         self._debilidad = None
         self.__salvajismo = self.generar_atributos()
-    
-    @abstractmethod
+
     def getSalvajismo(self):
         return self.__salvajismo
     
-    @abstractmethod
     def setSalvajismo(self,valor):
         self.__salvajismo = valor
-    
-    @abstractmethod
+
     def getVida(self):
         return self.__vida
-    
-    @abstractmethod
+
     def setVida(self,valor):
         self.__vida = valor
     
-    @abstractmethod
     def getNombre(self):
         return self.__nombre
     

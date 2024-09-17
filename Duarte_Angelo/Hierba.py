@@ -7,21 +7,6 @@ class Hierba(Pokemon):
         self._tipo = 'Hierba'
         self._debilidad = 'Fuego'
     
-    def getSalvajismo(self):
-        return super().getSalvajismo()
-    
-    def setSalvajismo(self, valor):
-        return super().setSalvajismo(valor)
-    
-    def getVida(self):
-        return super().getVida()
-    
-    def setVida(self, valor):
-        return super().setVida(valor)
-    
-    def getNombre(self):
-        return super().getNombre()
-    
     def imprimir(self):
         return super().imprimir()
     
