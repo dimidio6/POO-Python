@@ -3,56 +3,51 @@ from random import *
 
 class Pokemon(ABC):
     def __init__(self,nombre):
-        self.__nombre = nombre
+        self._nombre = nombre
         self._tipo = None
-        self.__vida = 100
-        self._ataque = self.generar_atributos()
-        self.__defensa = self.generar_atributos()
-        self._velocidad = self.generar_atributos()
+        self._vida = 100
+        self._ataque = self._generar_atributos()
+        self._defensa = self._generar_atributos()
+        self._velocidad = self._generar_atributos()
         self._debilidad = None
-        self.__salvajismo = self.generar_atributos()
+        self._salvajismo = self._generar_atributos()
     
-    @abstractmethod
-    def getSalvajismo(self):
-        return self.__salvajismo
-    
-    @abstractmethod
-    def setSalvajismo(self,valor):
-        self.__salvajismo = valor
-    
-    @abstractmethod
-    def getVida(self):
-        return self.__vida
-    
-    @abstractmethod
-    def setVida(self,valor):
-        self.__vida = valor
-    
-    @abstractmethod
     def getNombre(self):
-        return self.__nombre
+        return self._nombre
     
-    def generar_atributos(self):
+    def getVida(self):
+        return self._vida
+    
+    def setVida(self,valor):
+        self._vida = valor
+    
+    def getSalvajismo(self):
+        return self._salvajismo
+    
+    def getDebilidad(self):
+        return self._debilidad
+    
+    def setSalvajismo(self,valor):
+        self._salvajismo = valor
+    
+    def _generar_atributos(self):
         return randint(0,100)
     
-    @abstractmethod
     def imprimir(self):
-        print('Nombre:',self.__nombre)
+        print('Nombre:',self._nombre)
         print('Ataque:',self._ataque)
-        print('Defensa:',self.__defensa)
+        print('Defensa:',self._defensa)
         print('Velocidad:',self._velocidad)
-        print('Salvajismo:',self.__salvajismo)
+        print('Salvajismo:',self._salvajismo)
         print()
     
-    @abstractmethod
     def ataque(self,pokemon):
         probabilidad = randint(1,10)
-        if self._tipo == pokemon._debilidad and probabilidad < 8: #probabilidad del %70
+        if self._tipo == pokemon.getDebilidad() and probabilidad < 8: #probabilidad del %70
             return self._ataque+self._ataque*0.5 #incrementa el ataque en %50
         else:
             return self._ataque
     
-    @abstractmethod
     def defensa(self,ataque):
-        if ataque > self.__defensa:
-            self.__vida -= ataque - self.__defensa
+        if ataque > self._defensa:
+            self._vida -= ataque - self._defensa
