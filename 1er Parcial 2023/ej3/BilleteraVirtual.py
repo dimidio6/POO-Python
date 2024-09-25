@@ -5,8 +5,6 @@ class BilleteraVirtual(Cuenta):
         super().__init__(saldo, dueño, nroCuenta)
         self.__cvu = None
     
-    def debito(self, gasto):
-        self._saldo -= gasto
-    
-    def credito(self, gasto, cuotas, interes):
-        return super().credito(gasto, cuotas, 0.08) # interés del %8
+    def credito(self,gasto,cuotas):
+        gastoCuota = gasto/cuotas
+        super().credito(gastoCuota+gastoCuota*0.08,cuotas) # interés del 8%

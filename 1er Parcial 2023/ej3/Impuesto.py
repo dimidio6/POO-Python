@@ -6,7 +6,10 @@ class Impuesto:
         self.__estado = 'Pendiente'
         self.__numComprobante = None
     
-    def validarPago(self,monto,periodo,num_comprobante):
-        if monto == self.__monto and periodo == self.__periodo:
+    def validarPago(self,monto,mes,num_comprobante):
+        if monto == self.__monto and mes == self.__periodo:
             self.__estado = 'Cobrado'
             self.__numComprobante = num_comprobante
+    
+    def getMonto (self):
+        return self.__monto

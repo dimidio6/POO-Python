@@ -3,17 +3,22 @@ from abc import ABC,abstractmethod
 class Cuenta(ABC):
     def __init__(self,saldo,dueño,nroCuenta):
         self._saldo = saldo
-        self.__dueño = dueño
-        self.__nroCuenta = nroCuenta
+        self._dueño = dueño
+        self._nroCuenta = nroCuenta
     
-    @abstractmethod
+    def __verificarSaldo(self,gasto):
+        if self._saldo - gasto < 0:
+            print('Saldo insuficiente.')
+        else:
+            self._saldo -= gasto
+            print('Pago realizado con éxito.')
+    
     def debito(self,gasto):
-        pass
+        self.__verificarSaldo(gasto)
     
     @abstractmethod
-    def credito(self,gasto,cuotas,interes):
-        match cuotas:
-            case (1,2,3): self._saldo -= gasto/cuotas
-            case (6,9,12):
-                gastoCuota = (gasto/cuotas)
-                self._saldo -= (gastoCuota+gastoCuota*interes) # se le agrega un interés
+    def credito(self,gasto,cuotas):
+        self.__verificarSaldo(gasto)
+    
+    def getSaldo(self):
+        return self._saldo
