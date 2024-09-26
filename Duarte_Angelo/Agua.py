@@ -3,9 +3,7 @@ from random import *
 
 class Agua(Pokemon):
     def __init__(self, nombre):
-        super().__init__(nombre)
-        self._tipo = 'Agua'
-        self._debilidad = 'Hierba'
+        super().__init__(nombre,'Agua','Hierba')
     
     def ataque(self, pokemon):
         if self._tipo == pokemon.getDebilidad():

@@ -2,15 +2,15 @@ from abc import ABC, abstractmethod
 from random import *
 
 class Pokemon(ABC):
-    def __init__(self,nombre):
+    def __init__(self,nombre,tipo,debilidad):
         self._nombre = nombre
-        self._tipo = None
+        self._tipo = tipo
         self._vida = 100
-        self._ataque = self._generar_atributos()
-        self._defensa = self._generar_atributos()
-        self._velocidad = self._generar_atributos()
-        self._debilidad = None
-        self._salvajismo = self._generar_atributos()
+        self._ataque = randint(0,100)
+        self._defensa = randint(0,100)
+        self._velocidad = randint(0,100)
+        self._debilidad = debilidad
+        self._salvajismo = randint(0,100)
     
     def getNombre(self):
         return self._nombre
@@ -29,9 +29,6 @@ class Pokemon(ABC):
     
     def setSalvajismo(self,valor):
         self._salvajismo = valor
-    
-    def _generar_atributos(self):
-        return randint(0,100)
     
     def imprimir(self):
         print('Nombre:',self._nombre)

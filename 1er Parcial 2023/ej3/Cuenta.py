@@ -8,10 +8,17 @@ class Cuenta(ABC):
     
     def __verificarSaldo(self,gasto):
         if self._saldo - gasto < 0:
-            print('Saldo insuficiente.')
+            print('Pago = - $',gasto)
+            print('Saldo insuficiente = $',self._saldo)
+            print('Pago NO realizado.')
+            print('------------------')
         else:
+            print('Pago = - $',gasto)
+            print('Saldo = $',self._saldo)
             self._saldo -= gasto
+            print('Saldo actualizado = $',self._saldo)
             print('Pago realizado con éxito.')
+            print('-------------------------')
     
     def debito(self,gasto):
         self.__verificarSaldo(gasto)

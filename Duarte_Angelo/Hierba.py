@@ -3,9 +3,7 @@ from random import *
 
 class Hierba(Pokemon):
     def __init__(self, nombre):
-        super().__init__(nombre)
-        self._tipo = 'Hierba'
-        self._debilidad = 'Fuego'
+        super().__init__(nombre,'Hierba','Fuego')
     
     def defensa(self,ataque):
         probabilidad = randint(1,2) #probabilidad del %50
