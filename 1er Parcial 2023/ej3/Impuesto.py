@@ -7,13 +7,13 @@ class Impuesto:
         self.__numComprobante = None
     
     def validarPago(self,monto,mes,num_comprobante):
-        if monto == self.__monto and mes == self.__periodo:
+        if (monto == self.__monto) and (mes == self.__periodo):
             self.__estado = True # cobrado
             self.__numComprobante = num_comprobante
         print('Monto = $',monto)
         print('Mes:',mes)
         print('ESTADO:',self.__estado)
-        print('Comprobante N°',num_comprobante)
+        print('Comprobante N°',self.__numComprobante)
         print('=================')
     
     def imprimir(self):

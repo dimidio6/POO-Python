@@ -3,8 +3,8 @@ from BilleteraVirtual import BilleteraVirtual
 from Impuesto import Impuesto
 import random
 
-CuentaBanco = Banco(200000,'Samuel Eto',123)
-CuentaVirtual = BilleteraVirtual(180000,'wolfav',321)
+CuentaBanco = Banco(100000,'Samuel Eto',123)
+CuentaVirtual = BilleteraVirtual(70000,'wolfav',321)
 
 tipo_impuesto = ['ISR','IVA','IBI','Impuesto a la Ganancia','ITP','IDCB']
 montos = [40000, 60000]
@@ -15,6 +15,7 @@ for i in range(1,20):
     impuestos.append(nuevoImpuesto)
 random.shuffle(impuestos)
 
+CuentaBanco.imprimirDatos()
 for i in range(1,20):
     nuevoImpuesto = random.choice(impuestos) # selecciona un impuesto aleatorio de la lista
     nuevoImpuesto.imprimir()
@@ -25,3 +26,5 @@ for i in range(1,20):
             CuentaBanco.debito(nuevoImpuesto.getMonto())
         else:
             CuentaBanco.credito(nuevoImpuesto.getMonto(),random.choice([1,2,3,6,9,12])) # cantidad de cuotas aleatoria
+        impuestos.remove(nuevoImpuesto)
+CuentaBanco.imprimirDatos()

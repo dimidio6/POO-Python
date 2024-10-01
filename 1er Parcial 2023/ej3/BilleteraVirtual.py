@@ -7,4 +7,4 @@ class BilleteraVirtual(Cuenta):
     
     def credito(self,gasto,cuotas):
         gastoCuota = gasto/cuotas
-        super().credito(gastoCuota+gastoCuota*0.08,cuotas) # interés del 8%
+        super().credito(gastoCuota+gastoCuota*0.08) # interés del 8%

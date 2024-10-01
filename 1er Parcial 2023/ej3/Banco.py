@@ -11,5 +11,5 @@ class Banco(Cuenta):
     def credito(self,gasto,cuotas):
         gastoCuota = gasto/cuotas
         match cuotas:
-            case (1,2,3): super().credito(gastoCuota,cuotas)
-            case (6,9,12): super().credito(gastoCuota+gastoCuota*0.02,cuotas) # interés del 2%
+            case 1|2|3: super().credito(gastoCuota)
+            case 6|9|12: super().credito(gastoCuota*1.02) # interés del 2%
